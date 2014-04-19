@@ -20,13 +20,17 @@ you can run the following command in R:
 
 
 ### Package installation
-To develop SparkR, you can build the scala package and the R package using
+To develop SparkR, you can build the scala package and the R package using (also check if your environment varialbes are properly set - see below)
 
     ./install-dev.sh
 
 Imnportant environment variables must be set:
-JAVA_HOME must set to the JAVA SDK installed location (Note: not the JRE)
+JAVA_HOME must set to the JAVA SDK installed location (Note: not the JRE) 
 SCALA_HOME must set to SCALA installed location 
+
+If you see WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform ..
+You may be on a 64bit platform and is using  a 32bit lib. see [3]
+export LD_LIBRARY_PATH=/usr/lib/hadoop-0.20-mapreduce/lib/native/Linux-amd64-64
 
 If you wish to try out the package directly from github, you can use `install_github` from `devtools`
 
