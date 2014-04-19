@@ -14,6 +14,8 @@ cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME")
   .libPaths(c(paste(projecHome,"/lib", sep=""), .libPaths()))
+  cat("Setting SparkR profile PROJECT_HOME ", projecHome)
+  cat("Setting SparkR profile library paths: ",.libPaths())
   Sys.setenv(NOAWT=1)
 }
 EOF
@@ -30,6 +32,8 @@ cat > /tmp/sparkR.profile << EOF
   require(SparkR)
   sc <- sparkR.init(Sys.getenv("MASTER", unset = "local"))
   assign("sc", sc, envir=.GlobalEnv)
+  cat("Setting SparkR profile PROJECT_HOME ", projecHome, "/n")
+  cat("Setting SparkR profile library paths: ", .libPaths(), "/n")
   cat("\n Welcome to SparkR!")
   cat("\n Spark context is available as sc\n")
 }
