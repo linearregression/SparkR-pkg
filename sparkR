@@ -13,14 +13,14 @@ if [ $# -gt 0 ]; then
 cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME", unset=NA)
-  classPath <- Sys.getenv("CLASSPATH", unset= NA)
-  javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
+  #classPath <- Sys.getenv("CLASSPATH", unset= NA)
+  #javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
   scalaHome <- Sys.getenv("SCALA_HOME", unset = NA)
   hadoopHome <- Sys.getenv("HADOOP_HOME", unset = NA)
 
   if(is.na(projecHome)){stop("ERROR: PROJECT_HOME must be set!!")}
-  if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
-  if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
+  #if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
+  #if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
   if(is.na(scalaHome)){stop("ERROR: SCALA_HOME must be set!!")}
   if(is.na(hadoopHome)){stop("ERROR: HADOOP_HOME must be set!!")}
 
@@ -30,7 +30,7 @@ cat > /tmp/sparkR.profile << EOF
 	       paste(hadoopHome,"/lib", sep=""),
            .libPaths()))
   cat("\n Setting SparkR profile PROJECT_HOME ", projecHome)
-  cat("\n JAVA_HOME is set as: ", javaHome)
+  #cat("\n JAVA_HOME is set as: ", javaHome)
   cat("\n SCALA_HOME is set as :", scalaHome)
   cat("\n HADOOP_HOME is set as: ", hadoopHome)
   cat("\n library paths: ", .libPaths())
@@ -45,14 +45,14 @@ else
 cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME", unset=NA)
-  classPath <- Sys.getenv("CLASSPATH", unset= NA)
-  javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
+  #classPath <- Sys.getenv("CLASSPATH", unset= NA)
+  #javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
   scalaHome <- Sys.getenv("SCALA_HOME", unset =NA)
   hadoopHome <- Sys.getenv("HADOOP_HOME", unset =NA)
 
   if(is.na(projecHome)){stop("ERROR: PROJECT_HOME must be set!!")}
-  if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
-  if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
+  #if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
+  #if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
   if(is.na(scalaHome)){stop("ERROR: SCALA_HOME must be set!!")}
   if(is.na(hadoopHome)){stop("ERROR: HADOOP_HOME must be set!!")}
 
@@ -67,7 +67,7 @@ cat > /tmp/sparkR.profile << EOF
   sc <- sparkR.init(Sys.getenv("MASTER", unset = "local"))
   assign("sc", sc, envir=.GlobalEnv)
   cat("\n Setting SparkR profile PROJECT_HOME ", projecHome)
-  cat("\n JAVA_HOME is set as: ", javaHome)
+  #cat("\n JAVA_HOME is set as: ", javaHome)
   cat("\n SCALA_HOME is set as :", scalaHome)
   cat("\n HADOOP_HOME is set as: ", hadoopHome)
   cat("\n library paths: ", .libPaths())
