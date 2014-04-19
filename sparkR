@@ -13,8 +13,15 @@ if [ $# -gt 0 ]; then
 cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME")
-  .libPaths(c(paste(projecHome,"/lib", sep=""), .libPaths()))
-  cat("Setting SparkR profile PROJECT_HOME ", projecHome)
+  classPath <- Sys.getenv("CLASSPATH")
+  javaHome <- Sys.getenv("JAVA_HOME")
+  scalaHome <- Sys.getenv("SCALA_HOME")
+  .libPaths( c(paste(projecHome,"/lib", sep=""), 
+	       paste(scalaHome,"/lib", sep=""),
+           .libPaths()))
+  cat("Setting SparkR profile PROJECT_HOME ", projecHome, "/n")
+  cat("Setting SparkR profile JAVA_HOME is set as: ", javaHome, "/n")
+  cat("Setting SparkR profile SCALA_HOME is set as :", scalaHome, "/n")
   cat("Setting SparkR profile library paths: ",.libPaths())
   Sys.setenv(NOAWT=1)
 }
@@ -27,12 +34,20 @@ else
 cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME")
+  classPath <- Sys.getenv("CLASSPATH")
+  javaHome <- Sys.getenv("JAVA_HOME")
+  scalaHome <- Sys.getenv("SCALA_HOME")
   Sys.setenv(NOAWT=1)
-  .libPaths(c(paste(projecHome,"/lib", sep=""), .libPaths()))
+  .libPaths(c(paste(projecHome,"/lib", sep=""),
+	      paste(scalaHome,"/lib", sep=""),
+	    .libPaths()))
+  require(rJava)
   require(SparkR)
   sc <- sparkR.init(Sys.getenv("MASTER", unset = "local"))
   assign("sc", sc, envir=.GlobalEnv)
   cat("Setting SparkR profile PROJECT_HOME ", projecHome, "/n")
+  cat("Setting SparkR profile JAVA_HOME is set as: ", javaHome, "/n")
+  cat("Setting SparkR profile SCALA_HOME is set as :", scalaHome, "/n")
   cat("Setting SparkR profile library paths: ", .libPaths(), "/n")
   cat("\n Welcome to SparkR!")
   cat("\n Spark context is available as sc\n")
