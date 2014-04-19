@@ -14,14 +14,17 @@ cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME", unset=NA)
   classPath <- Sys.getenv("CLASSPATH", unset= NA)
-  javaHome <- Sys.getenv("JAVA_HOME", unset =NA)
-  scalaHome <- Sys.getenv("SCALA_HOME", unset =NA)
-  hadoopHome <- Sys.getenv("HADOOP_HOME, unset =NA)
-  # if(is.na(projecHome)){cat("ERROR: PROJECT_HOME must be set!!")}
-  # if(is.na(classPath)){cat("ERROR: CLASSPATH must be set!!")}
-  # if(is.na(javaHome)){cat("ERROR: JAVA_HOME must be set!!")}
-  # if(is.na(scalaHome)){cat("ERROR: SCALA_HOME must be set!!")}
-  # if(is.na(hadoopHome)){cat("ERROR: HADOOP_HOME must be set!!")}
+  javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
+  scalaHome <- Sys.getenv("SCALA_HOME", unset = NA)
+  hadoopHome <- Sys.getenv("HADOOP_HOME", unset = NA)
+
+  if(is.na(projecHome)){stop("ERROR: PROJECT_HOME must be set!!")}
+  if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
+  if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
+  if(is.na(scalaHome)){stop("ERROR: SCALA_HOME must be set!!")}
+  if(is.na(hadoopHome)){stop("ERROR: HADOOP_HOME must be set!!")}
+
+
   .libPaths( c(paste(projecHome,"/lib", sep=""), 
 	       paste(scalaHome,"/lib", sep=""),
 	       paste(hadoopHome,"/lib", sep=""),
@@ -43,14 +46,17 @@ cat > /tmp/sparkR.profile << EOF
 .First <- function() {
   projecHome <- Sys.getenv("PROJECT_HOME", unset=NA)
   classPath <- Sys.getenv("CLASSPATH", unset= NA)
-  javaHome <- Sys.getenv("JAVA_HOME", unset =NA)
+  javaHome <- Sys.getenv("JAVA_HOME", unset = NA)
   scalaHome <- Sys.getenv("SCALA_HOME", unset =NA)
-  hadoopHome <- Sys.getenv("HADOOP_HOME, unset =NA)
-  # if(is.na(projecHome)){cat("ERROR: PROJECT_HOME must be set!!")}
-  # if(is.na(classPath)){cat("ERROR: CLASSPATH must be set!!")}
-  # if(is.na(javaHome)){cat("ERROR: JAVA_HOME must be set!!")}
-  # if(is.na(scalaHome)){cat("ERROR: SCALA_HOME must be set!!")}
-  # if(is.na(hadoopHome)){cat("ERROR: HADOOP_HOME must be set!!")}
+  hadoopHome <- Sys.getenv("HADOOP_HOME", unset =NA)
+
+  if(is.na(projecHome)){stop("ERROR: PROJECT_HOME must be set!!")}
+  if(is.na(classPath)){stop("ERROR: CLASSPATH must be set!!")}
+  if(is.na(javaHome)){stop("INFO: JAVA_HOME is unset by script. It is ok!!")}
+  if(is.na(scalaHome)){stop("ERROR: SCALA_HOME must be set!!")}
+  if(is.na(hadoopHome)){stop("ERROR: HADOOP_HOME must be set!!")}
+
+
   Sys.setenv(NOAWT=1)
   .libPaths(c(paste(projecHome,"/lib", sep=""),
 	      paste(scalaHome,"/lib", sep=""),
