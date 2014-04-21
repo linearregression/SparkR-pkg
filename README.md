@@ -87,11 +87,15 @@ You may also consider adding the libs of Java and Scala to sparkR file like the 
 	       paste(scalaHome,"/lib", sep=""),
            .libPaths()))
 ```
-Reference to 
-[1] (http://www.r-statistics.com/2012/08/how-to-load-the-rjava-package-after-the-error-java_home-cannot-be-determined-from-the-registry/)
-[2] (https://sagebionetworks.jira.com/wiki/display/SYNR/Troubleshooting+Installation+Problems)
-[3] (http://stackoverflow.com/questions/19943766/hadoop-unable-to-load-native-hadoop-library-for-your-platform-error-on-centos)
-[4] (http://cran.r-project.org/web/packages/rJava/rJava.pdf)
+Reference:
+
+* [How to Load RJava] (http://www.r-statistics.com/2012/08/how-to-load-the-rjava-package-after-the-error-java_home-cannot-be-determined-from-the-registry/).
+
+* [Troooubleshoot RJava] (https://sagebionetworks.jira.com/wiki/display/SYNR/Troubleshooting+Installation+Problems).
+
+* [Hadoop unable to load native client] (http://stackoverflow.com/questions/19943766/hadoop-unable-to-load-native-hadoop-library-for-your-platform-error-on-centos).
+
+* [RJava Doc] (http://cran.r-project.org/web/packages/rJava/rJava.pdf).
 
 ## Examples, Unit tests
 
