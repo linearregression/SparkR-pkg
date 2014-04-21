@@ -64,7 +64,8 @@ cat > /tmp/sparkR.profile << EOF
 	    .libPaths()))
   require(rJava)
   require(SparkR)
-  sc <- sparkR.init(Sys.getenv("MASTER", unset = "local"))
+  sc <- sparkR.init(Sys.getenv("MASTER", unset = "local"), 
+	sparkEnvir=list(spark.ui.port="4042"))
   assign("sc", sc, envir=.GlobalEnv)
   cat("\n Setting SparkR profile PROJECT_HOME ", projecHome)
   #cat("\n JAVA_HOME is set as: ", javaHome)
