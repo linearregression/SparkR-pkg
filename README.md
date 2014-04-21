@@ -76,16 +76,17 @@ pass the variable `spark.executor.memory` to the SparkContext constructor.
     sc <- sparkR.init(master="spark://<master>:7077",
                       sparkEnvir=list(spark.executor.memory="1g"))
 
-Note: 
+# Note: 
+
 In case you are seeing classNotfound problem: 
 You may also consider adding the libs of Java and Scala to sparkR file like the following
-
+```
   javaHome <- Sys.getenv("JAVA_HOME")
   scalaHome <- Sys.getenv("SCALA_HOME")
   .libPaths( c(paste(projecHome,"/lib", sep=""), 
 	       paste(scalaHome,"/lib", sep=""),
            .libPaths()))
-
+```
 Reference to 
 [1] (http://www.r-statistics.com/2012/08/how-to-load-the-rjava-package-after-the-error-java_home-cannot-be-determined-from-the-registry/)
 [2] (https://sagebionetworks.jira.com/wiki/display/SYNR/Troubleshooting+Installation+Problems)
