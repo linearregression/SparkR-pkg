@@ -12,3 +12,6 @@ work/
 .*.swp
 .Rproj.user
 SparkR-pkg.Rproj
+#gedit cache
+*.*~
+*~

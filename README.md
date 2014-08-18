@@ -20,9 +20,17 @@ you can run the following command in R:
 
 
 ### Package installation
-To develop SparkR, you can build the scala package and the R package using
+To develop SparkR, you can build the scala package and the R package using (also check if your environment varialbes are properly set - see below)
 
     ./install-dev.sh
+
+Imnportant environment variables must be set:
+JAVA_HOME must set to the JAVA SDK installed location (Note: not the JRE) 
+SCALA_HOME must set to SCALA installed location 
+
+If you see WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform ..
+You may be on a 64bit platform and is using  a 32bit lib. see [3]
+export LD_LIBRARY_PATH=/usr/lib/hadoop-0.20-mapreduce/lib/native/Linux-amd64-64
 
 If you wish to try out the package directly from github, you can use `install_github` from `devtools`
 
@@ -72,6 +80,21 @@ pass the variable `spark.executor.memory` to the SparkContext constructor.
     sc <- sparkR.init(master="spark://<master>:7077",
                       sparkEnvir=list(spark.executor.memory="1g"))
 
+Note: 
+In case you are seeing classNotfound problem: 
+You may also consider adding the libs of Java and Scala to sparkR file like the following
+
+  javaHome <- Sys.getenv("JAVA_HOME")
+  scalaHome <- Sys.getenv("SCALA_HOME")
+  .libPaths( c(paste(projecHome,"/lib", sep=""), 
+	       paste(scalaHome,"/lib", sep=""),
+           .libPaths()))
+
+Reference to 
+[1] (http://www.r-statistics.com/2012/08/how-to-load-the-rjava-package-after-the-error-java_home-cannot-be-determined-from-the-registry/)
+[2] (https://sagebionetworks.jira.com/wiki/display/SYNR/Troubleshooting+Installation+Problems)
+[3] (http://stackoverflow.com/questions/19943766/hadoop-unable-to-load-native-hadoop-library-for-your-platform-error-on-centos)
+[4] (http://cran.r-project.org/web/packages/rJava/rJava.pdf)
 
 ## Examples, Unit tests
 

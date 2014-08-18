@@ -1,0 +1,23 @@
+
+ Setting SparkR profile PROJECT_HOME  /opt/temp/SparkR-pkg
+ SCALA_HOME is set as : /opt/scala-2.10.3
+ HADOOP_HOME is set as:  /opt/cloudera/parcels/CDH-4.6.0-1.cdh4.6.0.p0.26/lib/hadoop
+ library paths:  /opt/temp/SparkR-pkg/lib /opt/scala-2.10.3/lib /opt/cloudera/parcels/CDH-4.6.0-1.cdh4.6.0.p0.26/lib/hadoop/lib /root/R/x86_64-redhat-linux-gnu-library/3.0 /usr/lib64/R/library /usr/share/R/libraryLoading required package: methods
+Loading required package: rJava
+[SparkR] Initializing with classpath /opt/temp/SparkR-pkg/lib/SparkR/sparkr-assembly-0.1.jar
+
+broadcast variables : 14/04/19 15:51:28 INFO Slf4jLogger: Slf4jLogger started
+..
+include R packages : 
+parallelize() and collect() : ............................
+basic RDD functions : ......14/04/19 15:51:55 INFO RRDD: Removing RDD 33 from persistence list
+....................................................................................................................................................................................................................................................................................................................
+partitionBy, groupByKey, reduceByKey etc. : ............
+tests RDD function take() : ................
+the textFile() function : .14/04/19 15:54:14 INFO FileInputFormat: Total input paths to process : 1
+..14/04/19 15:54:17 INFO FileInputFormat: Total input paths to process : 1
+.14/04/19 15:54:17 INFO FileInputFormat: Total input paths to process : 1
+.14/04/19 15:54:22 INFO FileInputFormat: Total input paths to process : 1
+
+functions in utils.R : ..
+

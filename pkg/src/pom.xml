@@ -27,6 +27,7 @@
     </repository>
   </repositories>
   <dependencies>
+<<<<<<< HEAD
     <!-- NOTE: Adding the hadoop dependency first ensures
          that we pull in protobuf from Hadoop before Spark -->
     <dependency>
