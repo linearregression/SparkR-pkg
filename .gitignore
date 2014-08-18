@@ -10,6 +10,8 @@ checkpoints/
 target/
 lib/
 work/
+log/
+SparkR/
 # vim tmps
 .*.swp
 .Rproj.user
