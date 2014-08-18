@@ -1,0 +1,33 @@
+Broadcast-class         S4 class that represents a Broadcast variable
+RDD-class               S4 class that represents an RDD
+cache                   Persist an RDD
+collect                 Collect elements of an RDD
+combineByKey            Combine values by key
+count                   Return the number of elements in the RDD.
+flatMap                 Flatten results after apply a function to all
+                        elements
+groupByKey              Group values by key
+hashCode                Compute the hashCode of an object
+includePackage          Include this specified package on all workers
+lapply,RDD,function-method
+                        Apply a function to all elements
+lapplyPartition         Apply a function to each partition of an RDD
+lapplyPartitionsWithIndex
+                        Return a new RDD by applying a function to each
+                        partition of this RDD, while tracking the index
+                        of the original partition.
+parallelize             Create an RDD from a homogeneous list or
+                        vector.
+partitionBy             Partition an RDD by key
+reduce                  Reduce across elements of an RDD.
+reduceByKey             Merge values by key
+sampleRDD               Return an RDD that is a sampled subset of the
+                        given RDD.
+setBroadcastValue       Internal function to set values of a broadcast
+                        variable.
+sparkR.init             Initialize a new Spark Context.
+take                    Take elements from an RDD.
+takeSample              Return a list of the elements that are a
+                        sampled subset of the given RDD.
+textFile                Create an RDD from a text file.
+value                   Broadcast a variable to all workers
